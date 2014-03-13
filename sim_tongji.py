@@ -45,10 +45,15 @@ def tongji():
 				#print "time delay [%d]" % count, time_delay_temp,
 				#print "td average [%d]" % recv_num, time_delay_ms
 
+	wenben.close()
 
+	#print "send_num %d  recv_num %d" % (send_num, recv_num)
 	packet_loss_rate = 1 - float(recv_num)/float(send_num)
 
-	print "%d\t\t\t%d\t\t\t%.5f\t%.5f" % (send_num, recv_num, packet_loss_rate, time_delay_ms)
+
+	print "%d\t\t%d\t\t%.5f\t\t%.5f" % (send_num, recv_num, packet_loss_rate, time_delay_ms)
+
+	return "%d\t\t%d\t\t%.5f\t\t%.5f" % (send_num, recv_num, packet_loss_rate, time_delay_ms)
 
 	#print send_num, recv_num, "%.5f" % packet_loss_rate, "%.5f" % time_delay_ms
 

@@ -6,6 +6,7 @@ from tinyos.tossim.TossimApp import *
 import sys
 
 def sim():
+  
 
   n = NescApp()
   t = Tossim(n.variables.variables())
@@ -14,6 +15,8 @@ def sim():
   ff = open("log.txt", "w")
 
   topo = open("topo.txt", "r")
+
+
   for line in topo:
     s = line.split()
     if (len(s) > 0):
@@ -29,13 +32,14 @@ def sim():
       for i in range(27):
         t.getNode(i).addNoiseTraceReading(val)
 
+  
   for i in range (1,27):
-    print "Creating noise model for ",i;
+    #print "Creating noise model for ",i;
     t.getNode(i).createNoiseModel()
     t.getNode(i).bootAtTime(i * 11512170000 + 235423990)
 
   t.getNode(0).createNoiseModel()
-  print "Creating noise model for 0";
+  #print "Creating noise model for 0";
   t.getNode(0).bootAtTime(i * 11512170000 + 235423990)
 
 
@@ -65,7 +69,7 @@ def sim():
   #while v.getData() > 3:
   #  t.runNextEvent()
 
-  print "Runing..."
+  #print "Runing simuliation..."
 
   for i in range(0, 1000000):
     t.runNextEvent()
@@ -73,7 +77,9 @@ def sim():
   while v.getData() > 3:
     t.runNextEvent()
 
-  print "-------------END----------------"
+  ff.close()
+
+  print "----------SIM END----------"
 
 if __name__ == '__main__':
   sim()

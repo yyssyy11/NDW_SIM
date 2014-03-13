@@ -11,14 +11,12 @@
 #define NDW_CS_NUM		6
 #define NDW_FIB_NUM		6
 
-//#define PIT_STALE_COUNT		10
-//#define CS_STALE_COUNT		10
 
  enum {
 	AM_NDW = 3,
 	AM_NDW_BEACON = 6,
 
-	TIMER_PERIOD_REPO = 5,
+	TIMER_PERIOD_REPO = 200,
 
 	CS_STALE_COUNT = 3,
 	TIMER_PERIOD_CS = 1000,

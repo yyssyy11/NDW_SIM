@@ -54,6 +54,7 @@
   uint16_t sink_send;
   uint16_t sink_recv;
   uint16_t data;
+  uint16_t seq;
 
   ndw_repo_t ndw_repo;  //local repository  (now one item)
   ndw_cs_item_t ndw_cs[NDW_CS_NUM]; //CS table
@@ -141,6 +142,7 @@
     uint8_t i; 
     uint16_t dest_id;
     data++;
+    seq++;
     sprintf(ndw_repo.buf, "%d lx", data);
 
     if(strcmp(beaconname, "/") == 0)
@@ -149,14 +151,14 @@
       
       memset(&ndw_send, 0, sizeof(ndw_data_t));
 
-      //strcpy(ndw_send.name, "t3/6/32/h");
+      strcpy(ndw_send.name, "t3/6/32/h");
       //data = call Random.rand16();
-      strcpy(ndw_send.name, name_req_list[data%15]);  //lun xun
+      //strcpy(ndw_send.name, name_req_list[data%15]);  //lun xun
       
 
 
       ndw_send.datatype = NDW_REQ;
-      ndw_send.sequence = data;
+      ndw_send.sequence = seq;
 
       memcpy(ndw_send_ptr, &ndw_send, sizeof(ndw_data_t));
       memset(&ndw_send, 0, sizeof(ndw_data_t));
