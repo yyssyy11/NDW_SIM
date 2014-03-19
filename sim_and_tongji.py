@@ -13,5 +13,5 @@ sim_tongji.tongji()
 
 
 
-
+print "------------tong bu ce shi----------------"
 print "-------------END----------------"
