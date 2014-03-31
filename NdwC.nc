@@ -102,6 +102,7 @@
         send_busy = TRUE; //mark the send queue
         send_count ++;
         energy_count --;
+        dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("BEACON beacon onboard sent. %d\n", send_count);
         printfflush();
@@ -178,6 +179,7 @@
             send_count ++;
             energy_count --;
             sink_send ++;
+            dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
             #ifdef DEBUG_PRINT
             printf("FIB send item %d.\n", i);
             printfflush();
@@ -293,6 +295,7 @@
       send_busy = TRUE; //mark the send queue
       send_count ++;
       energy_count --;
+      dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
       #ifdef DEBUG_PRINT
       printf("BEACON beacon normal sent. %d\n", send_count);
       printfflush();
@@ -331,6 +334,7 @@
           send_count ++;
           receive_count ++;
           energy_count = energy_count -2;
+          dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("BEACON beacon onboard received. %d\n", send_count);
           printf("BEACON beacon re-onboard sent. %d\n", receive_count);
@@ -345,6 +349,7 @@
       {
         receive_count ++;
         energy_count --;
+        dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("BEACON beacon normal received. %d\n", receive_count);
         #endif
@@ -399,6 +404,7 @@
       {
         receive_count ++;
         energy_count --;
+        dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("DATA receive an interest message. %d \n", receive_count);
         printfflush();
@@ -419,6 +425,7 @@
       {
         receive_count ++;
         energy_count --;
+        dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("DATA receive a content message. %d\n", receive_count);
         printfflush();
@@ -839,6 +846,7 @@
       {
         send_count ++;
         energy_count --;
+        dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         send_busy = TRUE; //mark the send queue
         #ifdef DEBUG_PRINT
         printf("REPO content sent. %d\n", send_count);
@@ -875,6 +883,7 @@
           send_busy = TRUE; //mark the send queue
           send_count ++;
           energy_count --;
+          dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("CS send cache item %d. %d\n", i, send_count);
           printfflush();
@@ -923,6 +932,7 @@
           send_busy = TRUE; //mark the send queue
           send_count ++;
           energy_count --;
+          dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("FIB forward item %d. %d\n", i, send_count);
           printfflush();
@@ -965,6 +975,7 @@
           send_busy = TRUE; //mark the send queue
           send_count ++;
           energy_count --;
+          dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("DATA forward a content %d. %d\n", i, send_count);
           printf("PIT clear satisfied item %d.\n", i);

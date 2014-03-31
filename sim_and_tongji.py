@@ -9,7 +9,7 @@ import sim_ndw
 os.system('make micaz sim')
 print "-----------------------------"
 sim_ndw.sim()
-sim_tongji.tongji()
+#sim_tongji.tongji()
 
 
 

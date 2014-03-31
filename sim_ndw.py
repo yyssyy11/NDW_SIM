@@ -63,6 +63,7 @@ def sim():
   #t.addChannel("CS", ff)
   #t.addChannel("DATA", ff)
   t.addChannel("REPO", ff)
+  #t.addChannel("ENERGY", ff)
 
   #t.runNextEvent()
 
@@ -71,11 +72,15 @@ def sim():
 
   #print "Runing simuliation..."
 
-  for i in range(0, 1000000):
+  #m1 = t.getNode(1)
+  #v1 = m1.getVariable("NdwC.energy_count")
+
+  for i in range(0, 100000):
     t.runNextEvent()
 
   while v.getData() > 3:
     t.runNextEvent()
+
 
   ff.close()
 
