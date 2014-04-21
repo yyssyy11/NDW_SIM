@@ -50,7 +50,7 @@
   uint8_t local_beacon_class;
   uint16_t send_count;  //for simulation
   uint16_t receive_count;  //for simulation
-  uint16_t energy_count = ENERGY_NUM;  //for simulation
+  uint16_t energy_count = 0;  //for simulation
   uint16_t sink_send;
   uint16_t sink_recv;
   uint16_t data;
@@ -101,7 +101,7 @@
       {
         send_busy = TRUE; //mark the send queue
         send_count ++;
-        energy_count --;
+        energy_count ++;
         dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("BEACON beacon onboard sent. %d\n", send_count);
@@ -177,7 +177,7 @@
           {
             send_busy = TRUE; //mark the send queue
             send_count ++;
-            energy_count --;
+            energy_count ++;
             sink_send ++;
             dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
             #ifdef DEBUG_PRINT
@@ -294,7 +294,7 @@
     {
       send_busy = TRUE; //mark the send queue
       send_count ++;
-      energy_count --;
+      energy_count ++;
       dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
       #ifdef DEBUG_PRINT
       printf("BEACON beacon normal sent. %d\n", send_count);
@@ -348,7 +348,7 @@
       if(strstr(ndw_recv->name, beaconname) == ndw_recv->name  || strcmp(beaconname, "/") == 0)
       {
         receive_count ++;
-        energy_count --;
+        energy_count ++;
         dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("BEACON beacon normal received. %d\n", receive_count);
@@ -403,7 +403,7 @@
       if(ndw_recv->datatype == NDW_REQ)
       {
         receive_count ++;
-        energy_count --;
+        energy_count ++;
         dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("DATA receive an interest message. %d \n", receive_count);
@@ -424,7 +424,7 @@
       if(ndw_recv->datatype == NDW_RSP)
       {
         receive_count ++;
-        energy_count --;
+        energy_count ++;
         dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         #ifdef DEBUG_PRINT
         printf("DATA receive a content message. %d\n", receive_count);
@@ -457,7 +457,7 @@
     fib_active = 0;
     send_count = 0;
     receive_count = 0;
-    energy_count = ENERGY_NUM,
+    energy_count = 0,
     sink_send = 0;
     sink_recv = 0;
 
@@ -845,7 +845,7 @@
       if (call AMSend.send(dest_id, &packet, sizeof(ndw_data_t)) == SUCCESS)
       {
         send_count ++;
-        energy_count --;
+        energy_count ++;
         dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
         send_busy = TRUE; //mark the send queue
         #ifdef DEBUG_PRINT
@@ -882,7 +882,7 @@
         {
           send_busy = TRUE; //mark the send queue
           send_count ++;
-          energy_count --;
+          energy_count ++;
           dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("CS send cache item %d. %d\n", i, send_count);
@@ -931,7 +931,7 @@
         {
           send_busy = TRUE; //mark the send queue
           send_count ++;
-          energy_count --;
+          energy_count ++;
           dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("FIB forward item %d. %d\n", i, send_count);
@@ -974,7 +974,7 @@
         {
           send_busy = TRUE; //mark the send queue
           send_count ++;
-          energy_count --;
+          energy_count ++;
           dbg("ENERGY", "%s ENERGY is %d\n", sim_time_string(), energy_count);
           #ifdef DEBUG_PRINT
           printf("DATA forward a content %d. %d\n", i, send_count);

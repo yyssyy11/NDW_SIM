@@ -1,4 +1,8 @@
 #! /usr/bin/python
+#
+# basic sim script
+#
+#
 
 from random import *
 from TOSSIM import *
@@ -78,7 +82,7 @@ def sim():
   for i in range(0, 100000):
     t.runNextEvent()
 
-  while v.getData() > 3:
+  while v.getData() < 10000:
     t.runNextEvent()
 
 

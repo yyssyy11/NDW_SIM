@@ -1,4 +1,10 @@
 #! /usr/bin/python
+#
+#
+# sim result text statistics
+#
+#
+#
 
 import re
 import string

@@ -1,4 +1,8 @@
 #! /usr/bin/python
+#
+# basic energy sim script.
+#
+#
 
 from random import *
 from TOSSIM import *
@@ -45,7 +49,7 @@ def sim():
 
   for i in range(1, 27):
     t.getNode(i).getVariable("NdwC.energy_count")
-  m = t.getNode(0)
+  m = t.getNode(1)
   v = m.getVariable("NdwC.energy_count")
 
   #t.addChannel("SINK", sys.stdout)
@@ -77,10 +81,10 @@ def sim():
   #m1 = t.getNode(1)
   #v1 = m1.getVariable("NdwC.energy_count")
 
-  for i in range(0, 100000):
+  for i in range(0, 10000):
     t.runNextEvent()
 
-  while v.getData() > 3:
+  while v.getData() < 10000:
     t.runNextEvent()
 
 
