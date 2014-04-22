@@ -48,7 +48,7 @@ def sim():
 
 
   m = t.getNode(0)
-  v = m.getVariable("NdwC.energy_count")
+  v = m.getVariable("NdwC.send_count")
 
   #t.addChannel("SINK", sys.stdout)
   #t.addChannel("BOOT", sys.stdout)
@@ -82,7 +82,7 @@ def sim():
   for i in range(0, 100000):
     t.runNextEvent()
 
-  while v.getData() < 10000:
+  while v.getData() <= 5000:
     t.runNextEvent()
 
 

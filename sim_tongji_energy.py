@@ -20,7 +20,7 @@ def tongji():
 		s = line.split()
 		if (len(s) > 1):
 			i = string.atoi(s[1])
-			energy_ar[i] = 10000 - string.atoi(s[3])
+			energy_ar[i] = string.atoi(s[3])
 			#print "energy_ar[%d] : " % i,energy_ar[i]
 
 	energy_aver = energy_ar[0]

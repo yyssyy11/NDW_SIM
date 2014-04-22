@@ -152,9 +152,9 @@
       
       memset(&ndw_send, 0, sizeof(ndw_data_t));
 
-      //strcpy(ndw_send.name, "t3/6/32/h");
+      strcpy(ndw_send.name, "t3/6/32/h");
       //data = call Random.rand16();
-      strcpy(ndw_send.name, name_req_list[data%15]);  //lun xun
+      //strcpy(ndw_send.name, name_req_list[data%15]);  //lun xun
       
 
 
